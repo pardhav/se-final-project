@@ -107,6 +107,15 @@ const IndexPage = React.forwardRef((props: IndexPageProps, ref) => {
       onOpen();
       setFormValues(values);
     },
+    deleteRecord(dataType: string, id: number) {
+      (async () => {
+        const data = await axios
+          .get(
+            `http://localhost:8080/api/delete?type=${dataType}&record_id=${id}`
+          )
+          .then(() => fetchData());
+      })();
+    },
   }));
 
   return (

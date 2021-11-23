@@ -41,7 +41,7 @@ export default function Students() {
   const createFormLabels = [
     { label: "First Name", valueName: "firstName" },
     { label: "Last Name", valueName: "lastName" },
-    { label: "Phone", valueName: "phone", type: "tel"},
+    { label: "Phone", valueName: "phone", type: "tel" },
     { label: "Enrollment Date", valueName: "enrollDate", type: "date" },
   ];
   const [studentData, setStudentData] = React.useState([] as StudentData[]);
@@ -67,7 +67,14 @@ export default function Students() {
               Edit
             </Button>
             &nbsp;|&nbsp;
-            <Link color="blue.500">Delete</Link>
+            <Button
+              color="blue.500"
+              onClick={() => {
+                childRef.current?.deleteRecord("students", data.id);
+              }}
+            >
+              Delete
+            </Button>
           </Td>
         </Tr>
       ))
