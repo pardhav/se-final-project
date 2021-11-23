@@ -1,7 +1,8 @@
 import React from "react";
-import { Box, Link, Stack, Text, Wrap, WrapItem } from "@chakra-ui/react";
+import { Box, Link, Stack, Text } from "@chakra-ui/react";
 import CustomLayout from "./components/layout";
 import { Center } from "@chakra-ui/layout";
+import Head from "next/head";
 
 export default function Home() {
   const links: HomeLinksProps[] = [
@@ -42,31 +43,37 @@ export default function Home() {
     },
   ];
   return (
-    <CustomLayout>
-      <Stack w="100vw" pr="6" pl="6">
-        <Box bg="gray.100" color="black">
-          <Stack padding="6">
-            <Text fontSize="6xl">Student Information System (SIS)</Text>
-            <Text fontSize="3xl">
-              SIS is an application to manage student information and
-              registration system.
-            </Text>
-          </Stack>
-        </Box>
-        <Center>
-          <Box display="flex" w="80vw" flexWrap="wrap">
-            {links.map((link) => (
-              <HomeLinks
-                key={link.href}
-                href={link.href}
-                name={link.name}
-                tagline={link.tagline}
-              />
-            ))}
+    <>
+      <Head>
+        <title>SIS</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <CustomLayout>
+        <Stack w="100vw" pr="6" pl="6">
+          <Box bg="gray.100" color="black">
+            <Stack padding="6">
+              <Text fontSize="6xl">Student Information System (SIS)</Text>
+              <Text fontSize="3xl">
+                SIS is an application to manage student information and
+                registration system.
+              </Text>
+            </Stack>
           </Box>
-        </Center>
-      </Stack>
-    </CustomLayout>
+          <Center>
+            <Box display="flex" w="80vw" flexWrap="wrap">
+              {links.map((link) => (
+                <HomeLinks
+                  key={link.href}
+                  href={link.href}
+                  name={link.name}
+                  tagline={link.tagline}
+                />
+              ))}
+            </Box>
+          </Center>
+        </Stack>
+      </CustomLayout>
+    </>
   );
 }
 interface HomeLinksProps {

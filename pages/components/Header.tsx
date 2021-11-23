@@ -39,7 +39,7 @@ export default function Header() {
         <Link variant="link" colorScheme="gray" color="white" href="/courses">
           Courses
         </Link>
-        <Link variant="link" colorScheme="gray" color="white" href="/terms">
+        <Link variant="link" colorScheme="gray" color="white" href="/studyterms">
           Study Terms
         </Link>
         <Link variant="link" colorScheme="gray" color="white" href="/teaching">
